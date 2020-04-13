@@ -1,0 +1,114 @@
+linux常用命令
+
+日期时间
+1：date命令用来查看、设置时间
+格式化显示时间：+%Y--%m--%d
+
+2：hwlock（clock）用以显示硬件时钟时间
+
+3：cal命令用来查看日历
+
+4：uptime用来查看系统运行时间
+
+输出、查看命令
+1》命令echo用以显示输入的内容
+2：命令cat用以显示文件内容
+3：命令head用以显示文件的头几行（默认10行）
+-n 指定显示的行数
+
+4：命令tail用以显示文件的末尾几行（默认10行）
+-n 指定显示的行数
+-f  追踪显示文件更新（一般用于查看日志，命令不会退出，而是持续显示新加入的内容）
+
+5：命令more用于翻页显示文件内容（只能向下翻页）
+
+6：命令less用于翻页显示文件内容（带上下翻页）
+
+
+查看硬件信息
+
+1：命令lspci查看pci设备
+-v 查看详细信息
+
+2：命令lsusb用于查看usb设备
+-v 查看详细信息
+
+3：命令lsmod用于查看加载的模块（驱动）
+
+
+关机、重启
+
+1：命令shutdown用以关闭重启计算机
+shutdown『关机、重启』时间
+
+-h 关闭计算机
+-r 重启计算机
+
+如：
+立即关机 ： shutdown -h now
+10分钟后关机 ：shutdown -h +10
+23：30分关机  ：shutdown -h 23：30
+立即重启：   shutdown -r now
+
+2：命令poweroff用于关机
+
+3：命令reboot用于立即重启计算机
+
+
+归档、压缩
+
+1：zip命令用于压缩文件
+ zip test.zip myfiles
+ 
+2:unzip用于解压缩zip文件
+unzip test.zip
+
+gzip test  
+ 
+4：命令tar 用于归档文件
+tar -cvf（创建一个归档）  test
+tar -xvf （释放归档 ）  
+
+
+-z参数将归档后的归档文件进行gzip压缩
+
+
+ 
+查找
+
+1：命令locate用以快速查找文件、文件夹
+locate keyword
+该命令需要先创建数据库，数据库默认每天更新一次，可用update明令手工建立、更新数据库
+
+2：命令find用以高级查找文件、文件夹
+find  查找位置   查找参数
+
+例如：
+
+find . -name *test*
+find /-nane *.conf*
+find / -perm 777
+find / -type d
+find . -name "a*" -exec ls -l {} \;
+
+find常见的查找明令
+-name 文件名
+-perm  权限
+-user  用户
+-group 
+-size  文件大小查找
+-ctime  修改时间查找
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
