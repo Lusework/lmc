@@ -1,0 +1,42 @@
+linux系统文件挂载管理
+磁盘或分区创建好文件系统后，需要挂载到一个目录才能使用
+L1进行挂载或配置inux需要手工配置进行自动挂载
+/dev/sdb2 ext4
+
+MOUNT
+在linux中通过mount命令将格式化好的磁盘或者分区挂载到一个目录上
+mount /dev/sdb2（要挂载的分区） /mnt（挂载点）
+
+常用参数
+不到参数的mount命令会显示所有已挂载的文件系统
+
+-t 指定文件系统的类型
+-o 指定挂载选项
+
+ro，rw  以只读或读写形式挂载，默认rw
+sync    带表不使用缓存，多所有操作直接写入磁盘
+async     带表使用缓存，默认sync
+noatime   访问文件时不更新文件访问时间
+atime     访问文件时更新文件访问时间
+remount    重新挂载文件系统
+
+OMOUNT
+命令umount用来卸载已挂载的文件系统，相当于windows的弹出
+umount 文件系统/挂载点
+umount /dev/sdb2   ==  umount/mnt
+
+如果出现device is  busy报错，则表示该文件系统正在被使用，无法卸载
+可以使用下面命令查看使用文件的系统进程
+fuser -m /mnt
+
+也可以使用lsof查看正在被使用的文件
+lsof /mnt
+
+
+自动挂载
+配置文件/etc/fstab用来定义需要自动挂载的文件系统，fstab中的每一行代表一个挂载配置
+格式如下
+/dev/sdb2            /mnt      ext4         defaults    	0 0
+需要挂载的设备  	挂载点     文件系统		挂载选项		dump、fsck相关选项
+
+要挂载的设备也可使用

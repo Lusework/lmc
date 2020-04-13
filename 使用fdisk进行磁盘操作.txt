@@ -1,0 +1,10 @@
+使用fdisk进行磁盘管理
+
+fdisk分区工具
+fdisk在rescue模式下依然可以使用
+fdisk是一个基于MBR的分区工具
+fdisk命令只有具有超级用户权限才能运行
+使用fdisk -l可以列出所有安装的磁盘及其分区信息
+使用fdisk /dev/sda可以对目标磁盘进行分区操作
+分区之后使用partprobe命令让内核更新分区信息，否则需要重启才能识别到新的分区
+/proc/partitions文件也可用来查看分区信息

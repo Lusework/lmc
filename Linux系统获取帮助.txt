@@ -1,0 +1,18 @@
+Linux系统下获取帮助
+几乎所有的命令都可以使用-h或--help参数获取使用方法、参数信息等
+如：ls --help
+
+MAN
+man命令是linux中最常见的帮助命令，将要运行的命令作为参数运行man命令就可以获取帮助
+man ls  
+man文档分为很多类型
+
+man -k 可以用来查询包含该关键字的文档
+
+INFO
+info与man的使用方法一致
+man与info可以通过“/+关键字”方式进行搜索
+
+DOC
+许多程序、命令都要详细的文档，以TXT、HTML、PDF等方式
+保存在/use/share/doc目录中。
